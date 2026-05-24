@@ -1,3 +1,10 @@
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT FROM pg_database WHERE datname = 'university_db') THEN
+        EXECUTE 'CREATE DATABASE university_db';
+    END IF;
+END $$;
+
 CREATE SCHEMA IF NOT EXISTS university;
 
 -- ============================================================
